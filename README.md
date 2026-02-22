@@ -1,5 +1,3 @@
----
-
 ## 🌟 Problem Statement
 
 Recruiters hire from different channels like LinkedIn, Instagram, and other platforms.
