@@ -3,71 +3,195 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DMless Hiring Platform - Login</title>
+  <title>DMless Hiring Platform</title>
 
-  <!-- Bootstrap CDN -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    body {font-family:'Poppins',sans-serif; scroll-behavior:smooth; margin:0; padding:0;}
+    a {text-decoration:none;}
+
+    /* Navbar */
+    nav.navbar {background:transparent; transition:0.3s; position:fixed; width:100%; z-index:1000; padding:15px 30px;}
+    nav.navbar.scrolled {background:#4f46e5; box-shadow:0 4px 15px rgba(0,0,0,0.2);}
+    nav.navbar a {color:#fff; margin-left:15px; font-weight:600;}
+    nav.navbar a:hover {color:#d1d5db;}
+
+    /* Hero */
+    #hero {position:relative; padding:120px 0; color:#fff; background:linear-gradient(135deg,#4f46e5,#3b82f6);}
+    #hero h1 {font-size:3rem; margin-bottom:20px;}
+    #hero p {font-size:1.2rem; margin-bottom:30px;}
+    .btn-hero {padding:12px 25px; border-radius:50px; font-weight:600; margin:5px;}
+    .btn-primary-hero {background:#fff; color:#4f46e5;}
+    .btn-primary-hero:hover {background:#e0e7ff;}
+    .btn-outline-hero {border:2px solid #fff; color:#fff;}
+    .btn-outline-hero:hover {background:#fff; color:#4f46e5;}
+
+    /* Features */
+    #features {padding:100px 0; text-align:center; background:#f5f7fa;}
+    #features h2 {font-size:2.5rem; margin-bottom:50px;}
+    .features-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px;}
+    .feature-card {background:#fff; padding:30px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.05); transition:0.4s;}
+    .feature-card:hover {transform:translateY(-10px); box-shadow:0 15px 40px rgba(0,0,0,0.1);}
+    .feature-card img {width:60px; margin-bottom:20px;}
+    .feature-card h5 {margin-bottom:10px; color:#4f46e5; font-weight:600;}
+
+    /* How it Works */
+    #how-it-works {padding:100px 0; text-align:center; background:#fff;}
+    #how-it-works h2 {margin-bottom:50px;}
+    .steps {display:flex; flex-wrap:wrap; justify-content:center; gap:30px;}
+    .step-card {flex:1 1 250px; background:#f5f7fa; border-radius:20px; padding:30px; box-shadow:0 8px 25px rgba(0,0,0,0.08); transition:0.4s;}
+    .step-card:hover {transform:translateY(-8px);}
+    .step-card h3 {margin-top:15px; color:#4f46e5; font-weight:600;}
+
+    /* Login */
+    #login {padding:80px 0; background:#f2f2f2;}
+    #login .card {max-width:400px; margin:0 auto; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.1); transition:0.4s;}
+    #login .card:hover {transform:translateY(-5px);}
+
+    /* Footer */
+    footer {padding:80px 0; text-align:center; background:#4f46e5; color:#fff;}
+    footer h2 {margin-bottom:20px; font-size:2rem;}
+
+    /* Floating Login */
+    #floating-login {position:fixed; bottom:20px; right:20px; background:#4f46e5; color:#fff; padding:15px 20px; border-radius:50px; box-shadow:0 5px 15px rgba(0,0,0,0.3); z-index:1000; font-weight:600; transition:0.3s;}
+    #floating-login:hover {background:#3b37c6;}
+
+    @media(max-width:768px){
+      #hero h1 {font-size:2.2rem;}
+      #hero p {font-size:1rem;}
+      .features-grid, .steps {display:block;}
+      .feature-card, .step-card {margin-bottom:30px;}
+    }
+  </style>
 </head>
-
-<body class="bg-dark d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100">
 
   <!-- Navbar -->
-  <div id="navbar"></div>
+  <nav class="navbar d-flex justify-content-between">
+    <a href="#" class="fw-bold fs-4">DMless</a>
+    <div>
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#login">Login</a>
+    </div>
+  </nav>
 
-  <!-- Main Content -->
-  <main class="flex-grow-1 d-flex align-items-center justify-content-center">
-    <div class="card shadow-lg p-4" style="width: 400px; border-radius: 15px;">
+  <!-- Hero Section -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
+      <div data-aos="fade-right">
+        <h1>Hire Smarter with <span class="text-white fw-bold">DMless</span></h1>
+        <p>Automate recruitment with knockout MCQs, resume tracking, and analytics in one dashboard.</p>
+        <a href="#login" class="btn btn-primary btn-lg me-3 btn-hero btn-primary-hero">Login / Sign Up</a>
+        <a href="#features" class="btn btn-outline-light btn-lg btn-hero btn-outline-hero">Learn More</a>
+      </div>
+      <div data-aos="fade-left">
+        <!-- Professional neutral placeholder image -->
+        <!-- <img src="https://via.placeholder.com/400x300/cccccc/ffffff?text=" 
+             alt="DMless Dashboard" 
+             class="img-fluid shadow-lg rounded"> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features">
+    <div class="container">
+      <h2 data-aos="fade-up">Features</h2>
+      <div class="features-grid">
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://via.placeholder.com/60.png?text=Link" alt="Create Links">
+          <h5>Create Job Links</h5>
+          <p>Post roles, MCQs and track candidates efficiently.</p>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://via.placeholder.com/60.png?text=MCQ" alt="Knockout Logic">
+          <h5>Knockout Logic</h5>
+          <p>Automatically filter candidates with MCQ results.</p>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+          <img src="https://via.placeholder.com/60.png?text=Track" alt="Track Candidates">
+          <h5>Track Candidates</h5>
+          <p>View applied, shortlisted, and knocked out candidates.</p>
+        </div>
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+          <img src="https://via.placeholder.com/60.png?text=Resume" alt="Resume Upload">
+          <h5>Resume Upload</h5>
+          <p>Collect resumes from selected candidates seamlessly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works">
+    <div class="container">
+      <h2 data-aos="fade-up">How It Works</h2>
+      <div class="steps">
+        <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://via.placeholder.com/50.png?text=SignUp" width="50">
+          <h3>Sign Up</h3>
+          <p>Create your recruiter account and login.</p>
+        </div>
+        <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://via.placeholder.com/50.png?text=Job" width="50">
+          <h3>Create Job Link</h3>
+          <p>Post job, JD, and knockout MCQs for candidates.</p>
+        </div>
+        <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+          <img src="https://via.placeholder.com/50.png?text=Track" width="50">
+          <h3>Track Candidates</h3>
+          <p>View applied, shortlisted, or knocked out candidates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Login -->
+  <section id="login">
+    <div class="card shadow-lg p-4 mx-auto" style="max-width:400px;" data-aos="fade-up">
       <h2 class="text-center mb-3">DMless</h2>
       <p class="text-center text-muted">Recruiter Login</p>
-
       <form id="loginForm">
         <div class="mb-3">
           <label class="form-label">Email</label>
           <input type="email" id="email" class="form-control" placeholder="Enter email" required />
         </div>
-
         <div class="mb-3">
           <label class="form-label">Password</label>
           <input type="password" id="password" class="form-control" placeholder="Enter password" required />
         </div>
-
         <button type="submit" class="btn btn-primary w-100">Login</button>
       </form>
-
-      <p class="text-center mt-3 text-muted" style="font-size: 14px;">
-        Demo Login: any email & password
-      </p>
+      <p class="text-center mt-3 text-muted" style="font-size: 14px;">Demo Login: any email & password</p>
     </div>
-  </main>
+  </section>
 
   <!-- Footer -->
-  <div id="footer"></div>
+  <footer>
+    <h2>DMless - Simplify Recruitment</h2>
+    <p>© 2026 DMless. All rights reserved.</p>
+  </footer>
 
-  <!-- Load Navbar -->
+  <!-- Floating Login -->
+  <a href="#login" id="floating-login">Login / Sign Up</a>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    fetch("components/navbar.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("navbar").innerHTML = data;
-      });
+    AOS.init({duration:1000, once:true});
+    window.addEventListener('scroll', function(){
+      const navbar = document.querySelector('nav.navbar');
+      if(window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
   </script>
-
-  <!-- Load Footer -->
-  <script>
-    fetch("components/footer.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("footer").innerHTML = data;
-      });
-  </script>
-
-  <!-- Auth JS -->
   <script src="assets/js/auth.js"></script>
 
 </body>
