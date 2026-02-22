@@ -1,0 +1,12 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.card {
+  border: none;
+}
+
+h2 {
+  font-weight: bold;
+  color: #4b6cff;
+}

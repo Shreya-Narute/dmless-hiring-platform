@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recruiter Dashboard - DMless</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-light d-flex flex-column min-vh-100">
+
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <!-- Main Content -->
+  <main class="flex-grow-1">
+    <div class="container mt-5">
+
+      <h2 class="mb-4 text-center">Recruiter Dashboard</h2>
+
+      <!-- Stats Cards -->
+      <div class="row text-center mb-4">
+        <div class="col-md-4">
+          <div class="card shadow p-4">
+            <h5>Total Candidates Applied</h5>
+            <h2 id="appliedCount">0</h2>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow p-4">
+            <h5>Knocked Out Candidates</h5>
+            <h2 id="knockedCount" class="text-danger">0</h2>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow p-4">
+            <h5>Shortlisted Candidates</h5>
+            <h2 id="shortlistedCount" class="text-success">0</h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create Hiring Link Button -->
+      <div class="text-center">
+        <a href="create-test.html" class="btn btn-primary btn-lg">
+          + Create Hiring Link
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <!-- Load Navbar -->
+  <script>
+    fetch("components/navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+      });
+  </script>
+
+  <!-- Load Footer -->
+  <script>
+    fetch("components/footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+  <script src="assets/js/dashboard.js"></script>
+
+</body>
+</html>
